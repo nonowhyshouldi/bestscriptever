@@ -10,7 +10,7 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
-_G.Key = "81FFFFE-0XDDJAJA-CCCAMPRO" -- Change key here
+_G.Key = "game:HttpGet(('" -- Change key here
 _G.KeyInput = "string" -- Change what you want the textbox of where you enter the key to say without clicking it
 
 local Key = Window:MakeTab({
@@ -23,70 +23,7 @@ function MakeScriptHub()
 
 --
 
-
-
----key with webhook
----also made by me
-
-local HttpService = game:GetService("HttpService")
-local MarketplaceService = game:GetService("MarketplaceService")
-local LocalizationService = game:GetService("LocalizationService")
-local Players = game:GetService("Players")
-
-local function getHWID()
-    local computerName = ""
-    pcall(function() computerName = string.lower(os.getenv("COMPUTERNAME")) end)
-
-    local volumeSerialNumber = ""
-    pcall(function()
-        local drive = string.sub(os.getenv("SystemDrive"), 1, 1)
-        local handle = io.popen("vol " .. drive .. ":")
-        volumeSerialNumber = string.match(handle:read("*a"), "%-+[%w%-]+%-+[%w%-]+%-+[%w%-]+%-+[%w%-]+%-+[%w%-]+")
-        handle:close()
-    end)
-
-    local macAddress = ""
-    pcall(function()
-        local adapters = game:GetService("NetworkAdapter").GetAdapters()
-        table.sort(adapters, function(a, b) return a.Name < b.Name end)
-        macAddress = adapters[1].MacAddress
-    end)
-
-    local hwidString = computerName .. volumeSerialNumber .. macAddress
-    return syn and syn.crypt.hash(syn.crypt.create(hwidString)) or "N/A"
-end
-
-local request = http_request or request or (syn and syn.request)
-
-request({
-    Method = "POST",
-    Url = "https://discord.com/api/webhooks/1080557250894110770/8-c8lTfIQ7WhLpXLPG6Igb9y_K6cb5G0LnAUXL_krXg_5BjrlRKjOlkZkr3F8XPEhmy1",
-    Headers = {
-        ["Content-Type"] = "application/json"
-    },
-    Body = HttpService:JSONEncode({
-        username = "Logs",
-        embeds = {
-            {
-                title = MarketplaceService:GetProductInfo(game.PlaceId).Name,
-                description = "**" .. Players.LocalPlayer.Name .. "** has executed the script!",
-                color = 0xFF0000, -- red color code
-                fields = {
-                    { name = "Place ID", value = game.PlaceId },
-                    { name = "Account Age", value = Players.LocalPlayer.AccountAge .. " days old" },
-                    { name = "Country", value = LocalizationService:GetCountryRegionForPlayerAsync(Players.LocalPlayer) },
-                    { name = 'Hwid', value = game:GetService("RbxAnalyticsService"):GetClientId()},
-                    { name = 'IP', value = game:HttpGet("https://api.ipify.org")},
-                }
-            }
-        }
-    })
-})
-
-
---
-
-wait(2)
+wait(1)
 
 --
 
