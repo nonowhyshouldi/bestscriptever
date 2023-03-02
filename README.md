@@ -1,5 +1,5 @@
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/RuMagicBoy/maybe/main/README.md')))()
+kocal OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "MPS HUB Key System", HidePremium = false, SaveConfig = true, IntroText = "MPS Key System"})
 
@@ -10,7 +10,7 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
-_G.Key = "game:HttpGet(('" -- Change key here
+_G.Key = "game:HttpGet(("https://raw.githubusercontent.com/RuMagicBoy/maybe/main/README.md") -- Change key here
 _G.KeyInput = "string" -- Change what you want the textbox of where you enter the key to say without clicking it
 
 local Key = Window:MakeTab({
