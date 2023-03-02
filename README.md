@@ -10,7 +10,7 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
-_G.Key = "game:HttpGet(("https://raw.githubusercontent.com/RuMagicBoy/maybe/main/README.md") -- Change key here
+_G.Key = game:HttpGet(("https://raw.githubusercontent.com/RuMagicBoy/maybe/main/README.md") -- Change key here
 _G.KeyInput = "string" -- Change what you want the textbox of where you enter the key to say without clicking it
 
 local Key = Window:MakeTab({
